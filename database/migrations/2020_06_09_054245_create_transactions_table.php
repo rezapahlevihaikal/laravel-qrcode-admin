@@ -22,6 +22,7 @@ class CreateTransactionsTable extends Migration
             $table->longText('message')->nullable();
             $table->float('amount', 10, 4);
             $table->string('status')->default('initiated'); //initiated payment, completed and payment failed, completed and succsessfull
+            $table->softDeletes();
             $table->timestamps();
         });
     }

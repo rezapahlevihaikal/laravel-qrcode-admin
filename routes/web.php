@@ -25,3 +25,7 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->middleware('verified');
 
 Route::resource('qrcodes', 'QrcodeController');
+
+Route::resource('roles', 'RoleController');
+
+Route::resource('users', 'UserController');
