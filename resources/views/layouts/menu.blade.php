@@ -10,3 +10,7 @@
     <a href="{{ route('users.index') }}"><i class="fa fa-edit"></i><span>Users</span></a>
 </li>
 
+<li class="{{ Request::is('transactions*') ? 'active' : '' }}">
+    <a href="{{ route('transactions.index') }}"><i class="fa fa-edit"></i><span>Transactions</span></a>
+</li>
+

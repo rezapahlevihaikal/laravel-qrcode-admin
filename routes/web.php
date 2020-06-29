@@ -19,13 +19,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// only logged in users can views the below
+Route::group(['middleware' => 'auth'], function() {
+    //
+    Route::resource('qrcodes', 'QrcodeController');
 
-Auth::routes(['verify' => true]);
+    Route::resource('roles', 'RoleController');
+    
+    Route::resource('users', 'UserController');
+    
+    Route::resource('transactions', 'TransactionController');
 
-Route::get('/home', 'HomeController@index')->middleware('verified');
-
-Route::resource('qrcodes', 'QrcodeController');
-
-Route::resource('roles', 'RoleController');
-
-Route::resource('users', 'UserController');
+});
